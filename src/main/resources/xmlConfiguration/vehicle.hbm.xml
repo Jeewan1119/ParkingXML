@@ -1,0 +1,16 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="residentInfo.Vehicle" table="vehicle_info">
+        <id name="vehicleId" type="int" column="vehicle_id">
+            <generator class="native"/>
+        </id>
+        <property name="registrationNumber" type="int" column="registration_number"/>
+        <property name="registrationType" type="java.lang.String" column="registration_type"/>
+
+
+        <many-to-one name="resident" class="residentInfo.Resident" column="resident_id" cascade="all" unique="true"/>
+    </class>
+</hibernate-mapping>
